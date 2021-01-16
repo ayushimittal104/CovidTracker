@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import './App.css';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter,Route } from 'react-router-dom';
 import Homepage from './home/home';
 import State from './state/state';
 class App extends Component {
@@ -16,8 +16,9 @@ componentDidMount(){
   render(){
     return (
     <div className="App">
-        <BrowserRouter  exact path= '/'><Homepage data={this.state.data ? this.state.data : ""} /></BrowserRouter>
-        <BrowserRouter path="/state/:stateCode"><State /></BrowserRouter>
+        <BrowserRouter>
+        <Route  exact path= '/'><Homepage data={this.state.data ? this.state.data : ""} /></Route>
+        <Route exact path="/state/:stateCode"><State /></Route></BrowserRouter>
     </div>
   )
   }

@@ -5,7 +5,9 @@ const StatesData = props =>{
     {for (let state in props.data){
         let total = props.data[state].total;
         let s = <tr>
-           <NavLink style={{textDecoration:"none"}} to={`/state/${state}`} params={{stateData:props.data[state].districts}}><td>{state}</td>
+           <NavLink style={{textDecoration:"none"}} to={{
+               pathname:`/state/${state}`,
+               state:{stateData:props.data[state].districts}}}><td>{state}</td>
             <td>{total.confirmed ? total.confirmed :0}</td>
             <td>{total.other ? total.other : 0}</td>
             <td>{total.recovered ? total.recovered : 0}</td>
